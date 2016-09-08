@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Inventory</h1>
+      <div>
+        <h2>Enter a new car:</h2>
+        <form method="post" action="/postcar">
+          <input type="text" name="make" placeholder="Enter new car make">
+          <input type="text" name="model" placeholder="Enter new car model">
+          <input type="text" name="price" placeholder="Enter new car price">
+          <input type="text" name="color" placeholder="Enter new car color">
+          <button type="submit">Submit New Car</button>
+        </form>
+      </div>
+      <h2>Inventory</h2>
+      {% if cars is not empty %}
+        {% for car in cars %}
+          <h4>{{ car.getModel }} {{ car.getMake }}</h4>
+          <p>{{ car.getColor }}</p>
+          <p>{{ car.getPrice }}</p>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </body>
+</html>
